@@ -1,0 +1,14 @@
+ CREATE TABLE trees( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+					  name VARCHAR(100) NOT NULL,
+					  spouse_id INT,
+					  parent_id INT,
+					  deleted BOOLEAN DEFAULT 0,
+					  created TIMESTAMP DEFAULT NOW(),
+					  FOREIGN KEY(spouse_id) REFERENCES trees(id),
+					  FOREIGN KEY(parent_id) REFERENCES trees(id));
+
+CREATE TABLE users( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+					username VARCHAR(50) NOT NULL,
+					password VARCHAR(100) NOT NULL,
+					salt VARCHAR(50) NULL
+					);
